@@ -24,26 +24,7 @@ RUN useradd -rm -d /home/app/data  -s /bin/sh guest -u $UID
 RUN echo guest:$PASSWORD | chpasswd 
 USER guest
 
-COPY /daily_detect_cluster ./daily_detect_cluster
-
-
-
-
-
-
-
-
-
-
-#RUN mkdir /home/app/data
-
-# Create guest user
-#RUN useradd -rm -d /home/app/data  -s /bin/sh guest -u $UID
-#RUN echo guest | passwd guest --stdin
-#USER guest
-
-
-
+COPY /folder ./folder
 
 
 # BUILD: docker build --build-arg UID=$(id -u) -t giobbu/... .

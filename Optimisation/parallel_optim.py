@@ -6,8 +6,8 @@ import multiprocessing as mp
 from multiprocessing import cpu_count
 
 
-path_optimisation = "/home/colabatlantic2/projects/Flatlantic/optimisation/"
-path_results = "/home/colabatlantic2/projects/Flatlantic/optimisation/results/"
+path_optimisation = "path/optimisation/"
+path_results = "path/results/"
 
 if not os.path.exists(path_results):
     os.makedirs(path_results)
@@ -56,14 +56,14 @@ def optimisation(i, mode):
         f.close()
 
 
-    str_root_path = 'root_path = "/home/colabatlantic2/projects/Flatlantic/optimisation/data/'
+    str_root_path = 'root_path = "path/optimisation/data/'
     str_past = "    'past' : "
     str_now = "    'now' : "
     str_tail = "    'batch_files' : \" tail -n "
     str_minSigm = "    'min_sigma_blob': "
     str_maxSigm = "    'max_sigma_blob': "
     str_thresh = "    'threshold_blob': "
-    str_blobs_ts = "    'filename_blobs_ts': '/home/colabatlantic2/projects/Flatlantic/optimisation/" + "results/"
+    str_blobs_ts = "    'filename_blobs_ts': 'path/optimisation/" + "results/"
 
 
     for i in range(len(fileLines)):
