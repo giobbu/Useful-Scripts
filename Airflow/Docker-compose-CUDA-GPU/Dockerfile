@@ -3,6 +3,8 @@ FROM apache/airflow:2.5.0
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
+COPY requirements_gpu.txt .
+RUN pip install -r requirements_gpu.txt
 
 USER root
 RUN apt-get update \
@@ -24,9 +26,7 @@ RUN cd keras_retinanet/\
     && python setup.py build_ext --inplace
 
 RUN pip install git+https://github.com/broadinstitute/keras-resnet\ 
-    && pip install opencv-python Cython tensorflow asyncpg
-
-RUN pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
+    && pip install Cython tensorflow 
 
 WORKDIR /
 
